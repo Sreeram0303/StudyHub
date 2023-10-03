@@ -1,0 +1,28 @@
+<div class="topics">
+    <div class="topics__header">
+      <h2>Browse Topics</h2>
+    </div>
+    <ul class="topics__list">
+      <li>
+        <a href="{% url 'home' %}" class="active">All <span>{{ topics.count}}</span></a>
+      </li>
+      {% for topic in topics %}
+      <li>
+        <a href="{% url 'home' %}?q={{topic.name}}">{{ topic.name }} <span>{{topic.room_set.all.count}}</span></a>
+      </li>
+      {% endfor %}
+    </ul>
+    <a class="btn btn--link" href="{% url 'topics' %}">
+      More
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+        <title>chevron-down</title>
+        <path d="M16 21l-13-13h-3l16 16 16-16h-3l-13 13z"></path>
+      </svg>
+    </a>
+  </div>
+
+<!-- {% url 'home' %}?q={{topic.name}}
+    A query string parameter in Django is a key-value pair that is added to the end of a URL after a question mark (?). Query string parameters can be used to filter or sort data, or to pass additional information to a view.
+To access query string parameters in Django, you can use the request.GET dictionary. The request.GET dictionary is a dictionary-like object that contains all of the query string parameters that were passed to the view.
+To get the value of a query string parameter, you can use the request.GET.get() method. The request.GET.get() method takes two arguments: the name of the query string parameter and a default value. If the query string parameter is not present in the request, then the default value will be returned. -->
+<!-- </div> -->

@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<form action="" method = "post">
+    {% csrf_token %}
+    <p>Are you sure to delete? {{ obj }}</p>
+    <a href="{{ request.META.HTTP_REFERER }}">Go Back</a>
+    <!-- link fo reference : https://docs.djangoproject.com/en/4.2/ref/request-response/#:~:text=With%20the%20exception%20of%20CONTENT_LENGTH,HTTP_%20prefix%20to%20the%20name. -->
+    <input type="submit" name="" id="" value="Confirm">
+</form>
+
+{% endblock %}
